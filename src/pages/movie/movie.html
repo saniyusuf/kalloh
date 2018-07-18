@@ -1,0 +1,63 @@
+<!--
+  Generated template for the MoviePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{(movie$ | async)?.Title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <img [src]="(movie$ | async)?.Poster" width="100%" height="200px">
+
+  <ion-card>
+    <ion-card-header>Description</ion-card-header>
+    <ion-card-content>
+      {{(movie$ | async)?.Plot}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>Ratings</ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <span item-left>Rated</span>
+        <span item-right>{{(movie$ | async)?.Rated}}</span>
+      </ion-item>
+
+      <ion-item>
+        <span item-left>IMDB-Rating</span>
+        <span item-right>{{(movie$ | async)?.imdbRating}}</span>
+      </ion-item>
+      <ion-item>
+        <span item-left>Released</span>
+        <span item-right>{{(movie$ | async)?.Released}}</span>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>Cast</ion-card-header>
+    <ion-card-content>
+      <ion-item-group>
+        <ion-item-divider color="light">Director</ion-item-divider>
+        <ion-item>{{(movie$ | async)?.Director}}</ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light">Actors</ion-item-divider>
+        <span>{{(movie$ | async)?.Actors}}</span>
+      </ion-item-group>
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

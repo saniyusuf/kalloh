@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 import { HttpClientModule } from "@angular/common/http";
 import { MovieProvider } from '../providers/movie/movie';
 
@@ -35,6 +36,7 @@ import { MovieProvider } from '../providers/movie/movie';
     TabsPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

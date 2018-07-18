@@ -6,7 +6,8 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let movie of (movieList$ | async)">
+  <ion-card *ngFor="let movie of (movieList$ | async)"
+            (click)="goToDetail(movie.imdbID)">
     <img [src]="movie.Poster"/>
     <ion-card-content>
       <ion-card-title>

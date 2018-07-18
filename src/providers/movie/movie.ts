@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
+import {map, share} from "rxjs/operators";
 
 /*
   Generated class for the MovieProvider provider.
@@ -18,6 +19,18 @@ export class MovieProvider {
   getMovies(): Observable<Movie[]>{
     return this.http
       .get<Movie[]>('https://api.myjson.com/bins/x5g4x');
+  }
+
+  getMovie(imdbID: string): Observable<Movie>{
+    return this.getMovies()
+      .pipe(
+        map((movies)=> {
+          return movies.find((movie)=> {
+            return movie.imdbID === imdbID
+          });
+        }),
+        share()
+      );
   }
 
 }

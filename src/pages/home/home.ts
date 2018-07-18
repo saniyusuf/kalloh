@@ -16,4 +16,9 @@ export class HomePage {
     this.movieList$ = this.movieProvider.getMovies();
   }
 
+  goToDetail(imdbID: string) {
+    this.navCtrl.push('movie', {
+      imdbID: imdbID
+    });
+  }
 }
